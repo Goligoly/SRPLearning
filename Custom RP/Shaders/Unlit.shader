@@ -1,9 +1,13 @@
 ﻿Shader "Custom RP/Unlit"
 {
-    Properties {}
+    Properties
+    {
+        _BaseColor("Color", color) = (1.0,1.0,1.0,1.0)
+    }
     SubShader
     {
-        Pass {
+        Pass
+        {
             HLSLPROGRAM
             #include "UnlitPass.hlsl"
             #pragma vertex UnlitPassVertex
