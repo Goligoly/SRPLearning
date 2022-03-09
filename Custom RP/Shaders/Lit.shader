@@ -4,6 +4,8 @@
     {
         _BaseMap ("Texture", 2d) = "write" {}
         _BaseColor ("Color", color) = (0.5,0.5,0.5,1.0)
+        _Metallic ("Metallic", Range(0, 1)) = 0
+		_Smoothness ("Smoothness", Range(0, 1)) = 0.5
         _Cutoff ("Alpha Cutoff", Range(0.0, 1.0)) = 0.5
         [Toggle(_CLIPPING)] _Clipping ("Alpha Clipping", Float) = 0
         [Enum(UnityEngine.Rendering.BlendMode)] _SrcBlend ("Src Blend", float) = 1
@@ -22,6 +24,7 @@
             ZWrite [_ZWrite]
 
             HLSLPROGRAM
+            #pragma target 3.5
             #include "LitPass.hlsl"
 
             #pragma shader_feature _CLIPPING
