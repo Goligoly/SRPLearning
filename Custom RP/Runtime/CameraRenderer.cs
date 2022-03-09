@@ -6,6 +6,7 @@ public partial class CameraRenderer
     private ScriptableRenderContext context;
     private Camera camera;
     private CullingResults cullingResults;
+    private Lighting lighting = new Lighting();
 
     private static ShaderTagId
         unlitShaderTagId = new ShaderTagId("SRPDefaultUnlit"),
@@ -31,6 +32,7 @@ public partial class CameraRenderer
         }
 
         Setup();
+        lighting.Setup(context, cullingResults);
         DrawVisibleGeometry(useDynamicBatching, useGPUInstancing);
         DrawUnsupportedShaders();
         DrawGizmos();
